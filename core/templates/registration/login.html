@@ -1,0 +1,23 @@
+{% extends 'core/base.html' %}
+
+{% load static %}
+
+{% block contenido %}
+
+  <div class="container-login">
+    <center>
+      <h1 class="center">Login</h1>
+      <div class="links">
+        <a href="{% url 'login' %}" class="active">LOGIN |</a>
+        <a href="{% url 'registrar' %}">REGISTRO</a>
+      </div>
+    </center>
+    <form action="{% url 'login' %}" method="POST">
+      {% csrf_token %}
+      {{ form }}
+
+      <input class="form-control" type="submit" value="Login">
+    </form>
+  </div>
+
+  {% endblock %}

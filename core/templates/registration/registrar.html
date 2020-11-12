@@ -1,0 +1,32 @@
+{% extends 'core/base.html' %}
+
+{% load static %}
+
+{% block contenido %}
+
+
+  <div class="login-container">
+    <center>
+      <h1>Registro</h1>
+      <a href="{% url 'login' %}">LOGIN |</a>
+      <a href="{% url 'registrar' %}" class="active">REGISTRO</a>
+    </center>
+  </div>
+  <div class="login-container">
+    <form action="registrar.html" method="POST" autocomplete="off">
+      {% csrf_token %}
+      <label for="username">
+      </label>
+      <input class="form-control" type="text" name="username" placeholder="Username" id="username" required>
+      <label for="password">
+      </label>
+      <input class="form-control" type="password" name="password" placeholder="Password" id="password" required>
+      <label for="email">
+      </label>
+      <input class="form-control" type="email" name="email" placeholder="Email" id="email" required>
+      <br>
+      <input class="form-control" type="submit" value="Registro">
+    </form>
+  </div>
+
+  {% endblock %}

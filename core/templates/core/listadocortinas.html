@@ -1,0 +1,46 @@
+{% extends 'core/base.html' %}
+
+{% load static %}
+
+{% block javascript %}
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script src="{% static 'core/js/confirmacion.js' %}"></script>
+{% endblock %}
+
+{% block contenido %}
+
+<h2>Listado de clientes</h2>
+
+<table>
+    <tr>
+        <th>rut</th>
+        <th>nombres</th>
+        <th>apellidos</th>
+        <th>direccion</th>
+        <th>ciudad</th>
+        <th>nrocontacto</th>
+        <th>Opciones</th>
+    </tr>
+
+    {% for c in cliente %}
+
+    <tr>
+        <td>{{ c.rut }}</td>
+        <td>{{ c.nombres }}</td>
+        <td>{{ c.apellidos }}</td>
+        <td>{{ c.direccion }}</td>
+        <td>{{ c.ciudad }}</td>
+        <td>{{ c.nrocontacto }}</td>
+        <td>
+            <a href="{% url 'modificarcortina' c.id %}">Modificar</a>
+            <a href="#" onclick="confirmarEliminacion">Eliminar</a>
+        </td>
+    </tr>
+    
+    {% endfor %}
+
+</table>
+
+
+
+{% endblock %}

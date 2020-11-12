@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+
+<html class="no-js">
+
+<head>
+  <title>INICIO</title>
+  {% load static %}
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title></title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="{% static 'core/css/bootstrap.min.css' %}">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="{% static 'core/js/nav.js' %}"></script>
+  <link rel="stylesheet" href="{% static 'core/css/nav.css' %}">
+  <link rel="stylesheet" href="{% static 'core/css/responsiveiframe.css' %}">
+  <script src="{% static 'core/js/carro.js' %}"></script>
+  <script src="{% static 'core/js/responsive.js' %}"></script>
+</head>
+
+<body class=".cuerpo" background="{% static 'core/img/fondo.jpg' %}">
+
+  <div align=center>
+    <a href="{% url 'inicio' %}">
+      <h1 style="font-size:25px; color: rgb(63, 79, 90); border: rgb(255, 4, 4);">CORTINAJES PATRICIA</h1>
+    </a>
+  </div>
+  
+  <div class="topnav" id="myTopnav">
+    <a class="active" href="{% url 'inicio' %}">INICIO</a>
+    <a href="{% url 'login' %}">LOGIN</a>
+    <a href="{% url 'comomedir' %}">COMO MEDIR</a>
+    <a href="{% url 'comprar' %}">COMPRAR</a>
+    <a href="{% url 'contactanos' %}">CONTACTANOS</a>
+    <a href="{% url 'encuentranos' %}">ENCUENTRANOS</a>
+    <a href="{% url 'listadocortinas' %}">LISTADO CLIENTES</a>
+    <a href="{% url 'nuevacortina' %}">NUEVA CORTINA</a>
+    <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+      <i class="fa fa-bars"></i>
+    </a>
+  </div>
+
+    {% block contenido %}
+    
+    {% endblock %}
+
+    <br><br><br><br><br>
+    <div>
+      <footer class="footer">
+        <center>© 2020 Cortinajes Patricia. Todos los derechos reservados. Desarrollado por Padrigo Creaciones.</center>
+      </footer>
+    </div>
+</body>
+
+</html>
