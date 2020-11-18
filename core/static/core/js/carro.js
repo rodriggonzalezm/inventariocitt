@@ -5,7 +5,7 @@ window.onload = function () {
             id: 1,
             nombre: 'Cortina tradicional color gris 130x150 CM',
             precio: 50000,
-            imagen: "{% static 'https://sodimac.scene7.com/is/image//SodimacCL/2318911' %}"
+            imagen: "core/static/core/img/840e3e4f329be1eaf5977e378865d31c.jpg"
         },
         {
             id: 2,
