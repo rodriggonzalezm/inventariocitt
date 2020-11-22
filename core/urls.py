@@ -11,7 +11,7 @@ urlpatterns = [
     path('encuentranos/', encuentranos, name="encuentranos"),
     path('listadocortinas/', listadocortinas, name="listadocortinas"),
     path('nuevacortina/', nuevacortina, name="nuevacortina"),
-    path('modificarcortina/<id>', modificarcortina , name="modificarcortina"),
-    path('eliminarcortinas/<id>', eliminarcortinas , name="eliminarcortinas"),
+    path('modificarcortina/<id>/', modificarcortina , name="modificarcortina"),
+    path('eliminarcortinas/<id>/', eliminarcortinas , name="eliminarcortinas"),
     
 ]

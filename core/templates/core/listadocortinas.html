@@ -9,30 +9,28 @@
 
 {% block contenido %}
 
-<h2>Listado de clientes</h2>
+<h2>Listado de cortinas</h2>
 
 <table>
     <tr>
-        <th>rut</th>
-        <th>nombres</th>
-        <th>apellidos</th>
-        <th>direccion</th>
-        <th>ciudad</th>
-        <th>nrocontacto</th>
-        <th>Opciones</th>
+        <th>Nombre completo || </th>
+        <th>Ancho || </th>
+        <th>Alto || </th>
+        <th>Direccion || </th>
+        <th>Numero Telefonico || </th>
+        <th>OPCIONES</th>
     </tr>
 
-    {% for c in cliente %}
+    {% for p in cortinas %}
 
     <tr>
-        <td>{{ c.rut }}</td>
-        <td>{{ c.nombres }}</td>
-        <td>{{ c.apellidos }}</td>
-        <td>{{ c.direccion }}</td>
-        <td>{{ c.ciudad }}</td>
-        <td>{{ c.nrocontacto }}</td>
+        <td>{{ p.nombre }}</td>
+        <td>{{ p.ancho }}</td>
+        <td>{{ p.alto }}</td>
+        <td>{{ p.direccion }}</td>
+        <td>{{ p.numerotelefono }}</td>
         <td>
-            <a href="{% url 'modificarcortina' c.id %}">Modificar</a>
+            <a href="{% url 'modificarcortina' p.id %}">Modificar</a>
             <a href="#" onclick="confirmarEliminacion">Eliminar</a>
         </td>
     </tr>

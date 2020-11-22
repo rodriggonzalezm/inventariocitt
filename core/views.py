@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from .models import Cortinas
 from .forms import CortinasForm
+from django.contrib.auth.decorators import login_required
 # Create your views here.
 
 def inicio(request):
@@ -36,8 +37,9 @@ def listadocortinas(request):
     data = {
         'cortinas':cortinas
     }
-    return render(request, 'core/listadocortinas.html')
+    return render(request, 'core/listadocortinas.html', data)
 
+@login_required
 def nuevacortina(request):
 
     data = {
@@ -53,20 +55,17 @@ def nuevacortina(request):
     return render(request, 'core/nuevacortina.html', data)
 
 def modificarcortina(request, id):
-
     cortinas = Cortinas.objects.get(id=id)
     data = {
         'form':CortinasForm(instance=cortinas)
     }
 
     if request.method == 'POST':
-        formulario = CortinasForm(instance=cortinas)
+        formulario = CortinasForm(data=request.POST, instance=cortinas)
         if formulario.is_valid():
             formulario.save()
             data['mensaje'] = "Modificado correctamente"
             data ["form"] = formulario
-
-
 
     return render(request, 'core/modificarcortina.html', data)
 
