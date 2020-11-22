@@ -87,6 +87,7 @@ def registrousuario(request):
         formulario = CustomUserForm(request.POST)
         if formulario.is_valid():
             formulario.save()
+            data['mensaje'] = "Registrado correctamente"
 
             username=formulario.cleaned_data['username']
             password=formulario.cleaned_data['password1']

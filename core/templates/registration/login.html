@@ -3,11 +3,8 @@
 {% load static %}
 
 {% block contenido %}
-<div class="center">
-
-  <div class="container-login">
-    <center>
-      <h1 class="center">Login</h1>
+<center>
+      <h1>Login</h1>
       <div class="links">
         <a href="{% url 'login' %}" class="active">LOGIN |</a>
         <a href="{% url 'registrousuario' %}">REGISTRO</a>
@@ -22,8 +19,5 @@
       <input class="form-control" type="submit" value="Login">
     </form>
     <p>O ingresa con <a href="{% url 'social:begin' 'facebook' %}">FACEBOOK</a></p>
-  </div>
-</center>
-</div>
-
+  </center>
   {% endblock %}

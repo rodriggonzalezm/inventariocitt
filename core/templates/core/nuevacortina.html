@@ -3,8 +3,9 @@
 {% load static %}
 
 {% block contenido %}
+<center>
+    <h2>Nueva cortina</h2>
 
-<h2>Nueva cortina</h2>
 
 <form action="" method="POST">
     {% csrf_token %}
@@ -15,6 +16,7 @@
     <input type="reset" value="Limpiar">
     <input type="submit" value="Guardar">
 </form>
+</center>
 
 {{ mensaje }}
 
