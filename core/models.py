@@ -16,12 +16,15 @@ class Cliente(models.Model):
 
 
 class Cortinas (models.Model):
-    ancho = models.IntegerField()
-    alto = models.IntegerField()
-    rut = models.ForeignKey(Cliente, on_delete=models.CASCADE)
+    Nombre = models.CharField(max_length=500)
+    Ancho = models.IntegerField()
+    Alto = models.IntegerField()
+    Direccion = models.CharField(max_length=500)
+    NumeroTelefono = models.IntegerField()
+    
 
-    def __integer__(self):
-        return self.rut
+    def __str__(self):
+        return self.Nombre
 
 
 

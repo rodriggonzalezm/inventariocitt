@@ -3,6 +3,7 @@
 {% load static %}
 
 {% block contenido %}
+<div class="center">
 
   <div class="container-login">
     <center>
@@ -14,11 +15,14 @@
     </center>
     <form action="{% url 'login' %}" method="POST">
       {% csrf_token %}
-      {{ form }}
+      <table>
+        {{ form.as_table }}
+      </table>
 
       <input class="form-control" type="submit" value="Login">
     </form>
     <p>O ingresa con <a href="{% url 'social:begin' 'facebook' %}">FACEBOOK</a></p>
   </div>
+</div>
 
   {% endblock %}
