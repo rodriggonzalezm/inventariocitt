@@ -3,9 +3,9 @@ from .models import Cliente, Cortinas
 # Register your models here.
 
 class CortinasAdmin(admin.ModelAdmin):
-    list_display = ['rut', 'alto', 'ancho']
-    search_fields = ['rut']
-    list_filter = ['alto']
+    list_display = ['nombre', 'ancho', 'alto', 'direccion', 'numerotelefono']
+    search_fields = ['nombre']
+    list_filter = ['nombre']
     list_per_page = 10
 
 admin.site.register(Cliente)

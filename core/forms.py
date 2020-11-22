@@ -6,4 +6,4 @@ class CortinasForm(ModelForm):
 
     class Meta:
         model = Cortinas
-        fields = ['rut', 'ancho', 'alto']
+        fields = ['nombre', 'ancho', 'alto', 'direccion', 'numerotelefono']

@@ -16,15 +16,15 @@ class Cliente(models.Model):
 
 
 class Cortinas (models.Model):
-    Nombre = models.CharField(max_length=500)
-    Ancho = models.IntegerField()
-    Alto = models.IntegerField()
-    Direccion = models.CharField(max_length=500)
-    NumeroTelefono = models.IntegerField()
+    nombre = models.CharField(max_length=500)
+    ancho = models.IntegerField()
+    alto = models.IntegerField()
+    direccion = models.CharField(max_length=500)
+    numerotelefono = models.IntegerField()
     
 
     def __str__(self):
-        return self.Nombre
+        return self.nombre
 
 
 
