@@ -31,8 +31,6 @@ class Contacto (models.Model):
     correo = models.CharField(max_length=500)
     mensaje = models.CharField(max_length=2000)
 
-    
-
     def __str__(self):
         return self.correo
 

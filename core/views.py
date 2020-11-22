@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import Cortinas
+from .models import Cortinas, Contacto
 from .forms import CortinasForm, CustomUserForm, ContactoForm
 from django.contrib.auth.decorators import login_required, permission_required
 from django.contrib.auth import authenticate, login as dj_login
