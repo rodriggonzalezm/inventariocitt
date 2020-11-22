@@ -26,5 +26,15 @@ class Cortinas (models.Model):
     def __str__(self):
         return self.nombre
 
+class Contacto (models.Model):
+    nombre = models.CharField(max_length=500)
+    correo = models.CharField(max_length=500)
+    mensaje = models.CharField(max_length=2000)
+
+    
+
+    def __str__(self):
+        return self.correo
+
 
 

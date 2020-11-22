@@ -40,7 +40,9 @@
     <a href="{% url 'comprar' %}">COMPRAR</a>
     <a href="{% url 'contactanos' %}">CONTACTANOS</a>
     <a href="{% url 'encuentranos' %}">ENCUENTRANOS</a>
-    <a href="{% url 'listadocortinas' %}">LISTADO CORTINAS</a>
+    {% if user.is_staff %}
+    <a href="{% url 'listadocortinas' %}">ORDENES</a>
+    {% endif %}
     <a href="{% url 'nuevacortina' %}">NUEVA CORTINA</a>
     {% if user.is_authenticated %}
     <a href="#"> Usuario: {{ user.username }}</a>
@@ -53,7 +55,9 @@
 
     {% block contenido %}
     
+    
     {% endblock %}
+
 
     <br><br><br><br><br>
     <div>

@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from .models import Cortinas
-from .forms import CortinasForm, CustomUserForm
+from .forms import CortinasForm, CustomUserForm, ContactoForm
 from django.contrib.auth.decorators import login_required, permission_required
 from django.contrib.auth import authenticate, login as dj_login
 # Create your views here.
@@ -26,8 +26,17 @@ def comprar(request):
     return render(request, 'core/comprar.html')
 
 def contactanos(request):
-    
-    return render(request, 'core/contactanos.html')
+    data = {
+        'form' : ContactoForm()
+    }
+
+    if request.method == 'POST':
+        formulario = ContactoForm(request.POST)
+        if formulario.is_valid():
+            formulario.save()
+            data['mensaje'] = "Enviado correctamente"
+
+    return render(request, 'core/contactanos.html', data)
 
 def encuentranos(request):
     
@@ -96,5 +105,4 @@ def registrousuario(request):
             return redirect(to="inicio")
 
     return render(request, 'registration/registrar.html', data)
-
 
