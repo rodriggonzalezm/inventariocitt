@@ -31,7 +31,7 @@
         <td>{{ p.numerotelefono }}</td>
         <td>
             <a href="{% url 'modificarcortina' p.id %}">Modificar</a>
-            <a href="#" onclick="confirmarEliminacion">Eliminar</a>
+            <a href="{% url 'eliminarcortinas' p.id %}">Eliminar</a>
         </td>
     </tr>
     

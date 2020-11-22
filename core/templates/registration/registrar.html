@@ -9,25 +9,18 @@
     <center>
       <h1>Registro</h1>
       <a href="{% url 'login' %}">LOGIN |</a>
-      <a href="{% url 'registrar' %}" class="active">REGISTRO</a>
-    </center>
-  </div>
-  <div class="login-container">
-    <form action="registrar.html" method="POST" autocomplete="off">
-      {% csrf_token %}
-      <label for="username">
-      </label>
-      <input class="form-control" type="text" name="username" placeholder="Username" id="username" required>
-      <label for="password">
-      </label>
-      <input class="form-control" type="password" name="password" placeholder="Password" id="password" required>
-      <label for="email">
-      </label>
-      <input class="form-control" type="email" name="email" placeholder="Email" id="email" required>
-      <br>
-      <input class="form-control" type="submit" value="Registro">
-    </form>
-      <p>O ingresa con <a href="{% url 'social:begin' 'facebook' %}">Facebook</a></p>
-  </div>
+      <a href="{% url 'registrousuario' %}" class="active">REGISTRO</a>
+    
 
+    <form action="" method="POST">
+      {% csrf_token %}
+      <table>
+        {{ form.as_table }}
+      </table>
+      <input class="form-control" type="reset" value="Limpiar">
+      <br>
+      <input class="form-control" type="submit" value="Registrar">
+
+      <p>O ingresa con <a href="{% url 'social:begin' 'FACEBOOK' %}">Facebook</a></p>
+    </center>
   {% endblock %}

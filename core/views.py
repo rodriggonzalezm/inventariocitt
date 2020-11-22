@@ -1,7 +1,8 @@
 from django.shortcuts import render, redirect
 from .models import Cortinas
-from .forms import CortinasForm
-from django.contrib.auth.decorators import login_required
+from .forms import CortinasForm, CustomUserForm
+from django.contrib.auth.decorators import login_required, permission_required
+from django.contrib.auth import login, authenticate
 # Create your views here.
 
 def inicio(request):
@@ -40,6 +41,7 @@ def listadocortinas(request):
     return render(request, 'core/listadocortinas.html', data)
 
 @login_required
+@permission_required('core.add_cortinas')
 def nuevacortina(request):
 
     data = {
@@ -54,6 +56,7 @@ def nuevacortina(request):
 
     return render(request, 'core/nuevacortina.html', data)
 
+@permission_required('core.change_cortinas')
 def modificarcortina(request, id):
     cortinas = Cortinas.objects.get(id=id)
     data = {
@@ -68,12 +71,29 @@ def modificarcortina(request, id):
             data ["form"] = formulario
 
     return render(request, 'core/modificarcortina.html', data)
-
+@permission_required('core.delete_cortinas')
 def eliminarcortinas(request, id):
-
     cortinas = Cortinas.objects.get(id=id)
     cortinas.delete()
 
     return redirect(to="listadocortinas")
+
+def registrousuario(request):
+    data = {
+        'form':CustomUserForm
+    }
+
+    if request.method == 'POST':
+        formulario = CustomUserForm(request.POST)
+        if formulario.is_valid():
+            formulario.save()
+
+            username=formulario.cleaned_data['username']
+            password=formulario.cleaned_data['password1']
+            user = authenticate(username=username, password=password)
+            login(request, user)
+            return redirect(to="inicio")
+
+    return render(request, 'registration/registrar.html', data)
 
 
