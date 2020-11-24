@@ -2,25 +2,27 @@
 
 {% load static %}
 
+{% load crispy_forms_tags %}
+
 {% block contenido %}
 
 
-  <div class="login-container">
-    <center>
-      <h1>Registro</h1>
-      <a href="{% url 'login' %}">LOGIN |</a>
-      <a href="{% url 'registrousuario' %}" class="active">REGISTRO</a>
-    
+
+  <center>
+    <h1>Registro</h1>
+    <a href="{% url 'login' %}">LOGIN |</a>
+    <a href="{% url 'registrousuario' %}" class="active">REGISTRO</a>
+
 
     <form action="" method="POST">
       {% csrf_token %}
-      <table>
-        {{ form.as_table }}
-      </table>
+      
+      {{ form | crispy }}
+
       <input class="form-control" type="reset" value="Limpiar">
       <br>
       <input class="form-control" type="submit" value="Registrar">
 
       <p>O ingresa con <a href="{% url 'social:begin' 'FACEBOOK' %}">Facebook</a></p>
-    </center>
+  </center>
   {% endblock %}

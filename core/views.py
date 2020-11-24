@@ -3,8 +3,9 @@ from .models import Cortinas, Contacto
 from .forms import CortinasForm, CustomUserForm, ContactoForm
 from django.contrib.auth.decorators import login_required, permission_required
 from django.contrib.auth import authenticate, login as dj_login
-# Create your views here.
 
+from rest_framework import viewsets
+from .serializers import CortinasSerializers
 def inicio(request):
 
     return render(request, 'core/inicio.html')
@@ -106,3 +107,7 @@ def registrousuario(request):
 
     return render(request, 'registration/registrar.html', data)
 
+
+class CortinasViewSet(viewsets.ModelViewSet):
+    queryset = Cortinas.objects.all()
+    serializer_class = CortinasSerializers

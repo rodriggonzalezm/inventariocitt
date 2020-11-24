@@ -5,25 +5,25 @@ window.onload = function () {
             id: 1,
             nombre: 'Cortina tradicional color gris 130x150 CM',
             precio: 50000,
-            imagen: 'core/static/core/img/bg2.jpg'
+            imagen: 'static/core/img/bg2.jpg'
         },
         {
             id: 2,
             nombre: 'Cortina tradicional color crudo 170x150 CM',
             precio: 65000,
-            imagen: "{% static 'core/img/840e3e4f329be1eaf5977e378865d31c.jpg' %}"
+            imagen: 'static/core/img/bg2.jpg'
         },
         {
             id: 3,
             nombre: 'Cortina roller color blanco 100x150 CM',
             precio: 60000,
-            imagen: "{% static 'core/img/bg2.jpg' %}"
+            imagen: 'static/core/img/bg2.jpg'
         },
         {
             id: 4,
             nombre: 'Store color crudo 180x150 CM',
             precio: 70000,
-            imagen: "{% static 'core/img/Cortina-Store.jpg' %}"
+            imagen: 'static/core/img/bg2.jpg'
         },
         {
             id: 5,

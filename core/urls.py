@@ -1,5 +1,9 @@
-from django.urls import path
-from .views import inicio, login, registrar, comomedir, comprar, contactanos, encuentranos, listadocortinas, nuevacortina, modificarcortina, eliminarcortinas, registrousuario
+from django.urls import path, include
+from .views import inicio, login, registrar, comomedir, comprar, contactanos, encuentranos, listadocortinas, nuevacortina, modificarcortina, eliminarcortinas, registrousuario, CortinasViewSet
+from rest_framework import routers
+
+router = routers.DefaultRouter()
+router.register('cortinas', CortinasViewSet)
 
 urlpatterns = [
     path('', inicio, name="inicio"),
@@ -14,4 +18,5 @@ urlpatterns = [
     path('modificarcortina/<id>/', modificarcortina , name="modificarcortina"),
     path('eliminarcortinas/<id>/', eliminarcortinas , name="eliminarcortinas"),
     path('registro/', registrousuario , name="registrousuario"),
+    path('api/', include(router.urls)),
 ]

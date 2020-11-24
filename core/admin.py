@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Cliente, Cortinas
+from .models import Cliente, Cortinas, Contacto
 # Register your models here.
 
 class CortinasAdmin(admin.ModelAdmin):
@@ -10,3 +10,4 @@ class CortinasAdmin(admin.ModelAdmin):
 
 admin.site.register(Cliente)
 admin.site.register(Cortinas, CortinasAdmin)
+admin.site.register(Contacto)

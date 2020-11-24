@@ -3,7 +3,9 @@
 {% load static %}
 
 {% block contenido %}
-
+<head>
+  <script src="{% static 'core/js/carro.js' %}"></script>
+</head>
 
     <div class="row">
       <!-- Elementos generados a partir del JSON -->
@@ -19,6 +21,7 @@
         <button id="boton-vaciar" class="btn btn-danger">Vaciar</button>
       </aside>
     </div>
+
 
 
   {% endblock %}
