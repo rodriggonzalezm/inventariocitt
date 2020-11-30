@@ -136,6 +136,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
 STATICFILES_DIRS = [
     BASE_DIR / "static",
     #'/var/www/static/',
@@ -146,4 +147,5 @@ AUTHENTICATION_BACKENDS = (
 'django.contrib.auth.backends.ModelBackend',
 )
 
-PWA_SERVICE_WORKER_PATH = es.path.join(BASE_DIR, 'serviceworker.js')
+
+PWA_SERVICE_WORKER_PATH = os.path.join(BASE_DIR, 'serviceworker.js')
