@@ -20,10 +20,6 @@ def comomedir(request):
     
     return render(request, 'core/comomedir.html')
 
-def comprar(request):
-    
-    return render(request, 'core/comprar.html')
-
 def contactanos(request):
     data = {
         'form' : ContactoForm()
@@ -57,7 +53,7 @@ def nuevacortina(request):
     }
 
     if request.method == 'POST':
-        formulario = CortinasForm(request.POST)
+        formulario = CortinasForm(request.POST, files=request.FILES)
         if formulario.is_valid():
             formulario.save()
             data['mensaje'] = "Guardado correctamente"
@@ -72,11 +68,11 @@ def modificarcortina(request, id):
     }
 
     if request.method == 'POST':
-        formulario = CortinasForm(data=request.POST, instance=cortinas)
+        formulario = CortinasForm(data=request.POST, instance=cortinas, files=request.FILES)
         if formulario.is_valid():
             formulario.save()
             data['mensaje'] = "Modificado correctamente"
-            data ["form"] = formulario
+            data ["form"] = CortinasForm(instance=Cortinas.objects.get(id=id))
 
     return render(request, 'core/modificarcortina.html', data)
 @permission_required('core.delete_cortinas')

@@ -16,8 +16,9 @@
 
     <form action="" method="POST">
       {% csrf_token %}
-      
+      <table>
       {{ form | crispy }}
+    </table>
 
       <input class="form-control" type="reset" value="Limpiar">
       <br>
