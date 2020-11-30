@@ -4,6 +4,9 @@
 
 <head>
   <title>INICIO</title>
+
+  {% load pwa %}
+  {% progressive_web_app_meta %}
   {% load static %}
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -42,7 +45,7 @@
     {% if user.is_staff %}
     <a href="{% url 'listadocortinas' %}">ORDENES</a>
     {% endif %}
-    <a href="{% url 'nuevacortina' %}">NUEVA CORTINA</a>
+    <a href="{% url 'nuevacortina' %}">NUEVO PEDIDO</a>
     {% if user.is_authenticated %}
     <a href="#"> Usuario: {{ user.username }}</a>
     <a href="{% url 'logout' %}">Desconectar</a>

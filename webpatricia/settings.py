@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'social_django',
     'crispy_forms',
     'rest_framework',
+    'pwa',
 ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
@@ -144,3 +145,5 @@ AUTHENTICATION_BACKENDS = (
 'social_core.backends.facebook.FacebookOAuth2',
 'django.contrib.auth.backends.ModelBackend',
 )
+
+PWA_SERVICE_WORKER_PATH = es.path.join(BASE_DIR, 'serviceworker.js')

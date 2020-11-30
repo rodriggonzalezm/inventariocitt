@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from .models import Cortinas, Contacto
 from .forms import CortinasForm, CustomUserForm, ContactoForm
 from django.contrib.auth.decorators import login_required, permission_required
-from django.contrib.auth import authenticate, login as dj_login
+from django.contrib.auth import login, authenticate
 
 from rest_framework import viewsets
 from .serializers import CortinasSerializers
@@ -14,9 +14,7 @@ def login(request):
     
     return render(request, 'core/login.html')
 
-def registrar(request):
-    
-    return render(request, 'core/registrar.html')
+
 
 def comomedir(request):
     
@@ -90,7 +88,7 @@ def eliminarcortinas(request, id):
 
 def registrousuario(request):
     data = {
-        'form':CustomUserForm
+        'form':CustomUserForm()
     }
 
     if request.method == 'POST':
@@ -102,7 +100,7 @@ def registrousuario(request):
             username=formulario.cleaned_data['username']
             password=formulario.cleaned_data['password1']
             user = authenticate(username=username, password=password)
-            dj_login(request, user)
+            login(request, user)
             return redirect(to="inicio")
 
     return render(request, 'registration/registrar.html', data)

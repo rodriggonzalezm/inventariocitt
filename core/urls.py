@@ -1,5 +1,5 @@
 from django.urls import path, include
-from .views import inicio, login, registrar, comomedir, comprar, contactanos, encuentranos, listadocortinas, nuevacortina, modificarcortina, eliminarcortinas, registrousuario, CortinasViewSet
+from .views import inicio, login, comomedir, comprar, contactanos, encuentranos, listadocortinas, nuevacortina, modificarcortina, eliminarcortinas, registrousuario, CortinasViewSet
 from rest_framework import routers
 
 router = routers.DefaultRouter()
@@ -8,7 +8,6 @@ router.register('cortinas', CortinasViewSet)
 urlpatterns = [
     path('', inicio, name="inicio"),
     path('login/', login, name="login"),
-    path('registrar/', registrar, name="registrar"),
     path('comomedir/', comomedir, name="comomedir"),
     path('comprar/', comprar, name="comprar"),
     path('contactanos/', contactanos, name="contactanos"),
@@ -17,6 +16,6 @@ urlpatterns = [
     path('nuevacortina/', nuevacortina, name="nuevacortina"),
     path('modificarcortina/<id>/', modificarcortina , name="modificarcortina"),
     path('eliminarcortinas/<id>/', eliminarcortinas , name="eliminarcortinas"),
-    path('registro/', registrousuario , name="registrousuario"),
+    path('registrousuario/', registrousuario , name="registrousuario"),
     path('api/', include(router.urls)),
 ]

@@ -3,7 +3,7 @@ from .models import Cliente, Cortinas, Contacto
 # Register your models here.
 
 class CortinasAdmin(admin.ModelAdmin):
-    list_display = ['nombre', 'ancho', 'alto', 'direccion', 'numerotelefono']
+    list_display = ['nombre', 'ancho', 'alto', 'direccion', 'numerotelefono', 'imagen']
     search_fields = ['nombre']
     list_filter = ['nombre']
     list_per_page = 10

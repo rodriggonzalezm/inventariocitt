@@ -21,6 +21,7 @@ class Cortinas (models.Model):
     alto = models.IntegerField()
     direccion = models.CharField(max_length=500)
     numerotelefono = models.IntegerField()
+    imagen = models.ImageField(null=True ,upload_to='core/img', height_field=None, width_field=None, max_length=100)
     
 
     def __str__(self):
